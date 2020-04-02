@@ -24,6 +24,11 @@ class MultiplyMatrix {
   }
 
   wynikMnozenia() {
+    if (m1[0].length !== m2.length) {
+      throw Error(
+        "Szerokość pierwszej macierzy nie jest równa wysokości drugiej."
+      );
+    }
     return this.multiply(this.m1, this.m2);
   }
 }
@@ -41,4 +46,8 @@ const m2 = [
 
 const wynik = new MultiplyMatrix(m1, m2);
 
-console.table(wynik.wynikMnozenia());
+try {
+  console.table(wynik.wynikMnozenia());
+} catch (error) {
+  console.log(error);
+}
